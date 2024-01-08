@@ -27,8 +27,8 @@ trait HasSlug
     protected static function bootHasSlug()
     {
         static::creating(function (Model $model) {
-            if (! $model->slug) {
-                $model->slug = static::generateUniqueSlug($model->name);
+            if (! $model->{$model->slugKey()}) {
+                $model->{$model->slugKey()} = static::generateUniqueSlug($model->{$model->sluggable()});
             }
         });
     }
