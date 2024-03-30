@@ -44,7 +44,7 @@ trait HasSlug
     /**
      * Find a model by its slug.
      */
-    public static function findBySlug(string $slug, array $columns = ['*']): static
+    public static function findBySlug(string $slug, array $columns = ['*']): ?static
     {
         return static::whereSlug($slug)->first($columns);
     }
